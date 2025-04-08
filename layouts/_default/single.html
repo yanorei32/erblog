@@ -27,9 +27,10 @@
                         <blockquote class="self-elem-quote {{if isset $.Site.Params "quote"}}self-elem-quote-bg-{{index $.Site.Params.quote}}{{end}}" style="background-color:#FFFFFF;margin-top: 10px;">
                             <a href="{{.RelPermalink}}">
                                 <h3 class="">{{.Title}}</h3>
+                                {{ if isset .Params "description" }}
+                                  {{ .Description }}
+                                {{end}}
                             </a>
-                            
-                            {{partial "info" .}}
                         </blockquote>
                     </div>
                 	{{ end }}
@@ -44,10 +45,12 @@
                 {{range first 5 .Pages.ByDate.Reverse}}
                 <div style="margin-left: 10px;">
                     <blockquote class="self-elem-quote {{if isset $.Site.Params "quote"}}self-elem-quote-bg-{{index $.Site.Params.quote}}{{end}}" style="background-color:#FFFFFF;margin-top: 10px;">
-                    <a href="{{.RelPermalink}}">
+                      <a href="{{.RelPermalink}}">
                         <h3 class="">{{.Title}}</h3>
-                    </a>
-                    {{ partial "info" .}}
+                        {{ if isset .Params "description" }}
+                          {{ .Description }}
+                        {{end}}
+                      </a>
                     </blockquote>
                 </div>
                 {{end}}

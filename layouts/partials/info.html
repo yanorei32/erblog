@@ -1,33 +1,31 @@
-<h3 style="margin-top:10px; margin-bottom:10px"> 
-    <i class="layui-icon layui-icon-date" style="font-size: 120%; vertical-align: -2px;"></i>
-    <span>{{.Date.Format "2006-01-02"}}</span>
+<i class="layui-icon layui-icon-date" style="font-size: 120%; vertical-align: -2px;"></i>
+<span>{{.Date.Format "2006-01-02"}}</span>
 
-    <!--
-    <i class="layui-icon layui-icon-read" style="font-size: 24px; vertical-align: -2px;"></i>
-    <span style="vertical-align: px;">{{ .WordCount }} Words</span>
-    -->
-    {{if and (isset .Params "lastmod") ( ne .Params.lastmod .Date ) }} 
-    <i class="layui-icon layui-icon-refresh" style="font-size: 110%; vertical-align: -2px;"></i>
-    <span>{{dateFormat  "2006-01-02" .Params.lastmod }}</span>
-    {{end}}
-    {{if isset .Params "categories"}} 
-    <i class="layui-icon layui-icon-list" style="font-size: 150%; vertical-align: -3px;"></i>
-    {{end}}
+<!--
+<i class="layui-icon layui-icon-read" style="font-size: 24px; vertical-align: -2px;"></i>
+<span style="vertical-align: px;">{{ .WordCount }} Words</span>
+-->
+{{if and (isset .Params "lastmod") ( ne .Params.lastmod .Date ) }} 
+<i class="layui-icon layui-icon-refresh" style="font-size: 110%; vertical-align: -2px;"></i>
+<span>{{dateFormat  "2006-01-02" .Params.lastmod }}</span>
+{{end}}
 
-    {{ range $tag := .Params.categories }}
-        <a href="{{ "/categories/" | relLangURL }}{{ $tag | urlize | lower }}/">
-            <span class="layui-badge {{with $.Site.Params.badge}}layui-bg-{{.}}{{end}}" style="vertical-align: 2px;">{{ $tag }}</span>
-        </a>
-    {{ end }}
+{{if isset .Params "categories"}} 
+<i class="layui-icon layui-icon-list" style="font-size: 150%; vertical-align: -3px;"></i>
+{{end}}
 
-    {{ if isset .Params "tags" }}
-    <i class="layui-icon layui-icon-tabs" style="font-size: 100%; vertical-align: 1px;margin-right:2px;"></i>
-    {{end}}
+{{ range $tag := .Params.categories }}
+    <a href="{{ "/categories/" | relLangURL }}{{ $tag | urlize | lower }}/">
+        <span class="layui-badge {{with $.Site.Params.badge}}layui-bg-{{.}}{{end}}" style="vertical-align: 2px;">{{ $tag }}</span>
+    </a>
+{{ end }}
 
-    {{ range $tag := .Params.tags }}
-        <a href="{{ "/tags/" | relLangURL }}{{ $tag | urlize | lower }}/">
-            <span class="layui-badge {{with $.Site.Params.badge}}layui-bg-{{.}}{{end}}" style="vertical-align: 2px;">{{ $tag }}</span>
-        </a>
-    {{ end }}
-    
-</h3>
+{{ if isset .Params "tags" }}
+<i class="layui-icon layui-icon-tabs" style="font-size: 100%; vertical-align: 1px;margin-right:2px;"></i>
+{{end}}
+
+{{ range $tag := .Params.tags }}
+    <a href="{{ "/tags/" | relLangURL }}{{ $tag | urlize | lower }}/">
+        <span class="layui-badge {{with $.Site.Params.badge}}layui-bg-{{.}}{{end}}" style="vertical-align: 2px;">{{ $tag }}</span>
+    </a>
+{{ end }}

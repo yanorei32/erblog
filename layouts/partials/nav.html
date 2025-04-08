@@ -1,5 +1,6 @@
 <header class="layui-header layui-bg-cyan">
 
+  <div class=layui-container>
     {{if .Site.Params.logo}}
         <a href=""><img src="{{.Site.Params.logo | relURL }}" class="layui-nav-img" style="margin-left:10px;margin-top:-10px"></a>
     {{end}}
@@ -39,6 +40,7 @@
             </dl>
         </li>
     </ul>
+   </div>
 </header>
 
 <script>
