@@ -1,4 +1,4 @@
-    {{ range (.Paginator 10).Pages }}
+    {{ range sort (.Paginator 10).Pages "Params.lastmod" "desc" }}
         {{ partial "article" .}}
     {{ end }}
 
