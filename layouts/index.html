@@ -8,24 +8,19 @@
     <div class="layui-row about">
         <div class="layui-col-xs12 layui-col-sm4 layui-col-md4 about_left">
             <img class="lazyload about_portrait" data-src="{{ .Site.Params.portrait | default "/self/img/avater.jpg" | relURL }}" />
-            <h1> {{ safeHTML .Site.Params.author | default "Authors"}} </h1>
-            <h2> {{ safeHTML .Site.Params.description | default "Intro"}} </h2>
-            
-            <!-- Icons -->
-            {{ if .Site.Menus.icon }}
-            <div class="layui-row layui-col-space10 about_left_icon">
-                {{ range sort .Site.Menus.icon }}
-                <div class="layui-col-md3 layui-col-sm3 layui-col-xs3">
-                <a href="{{ .URL }}"><i class="fa fa-{{ .Name }}" style="font-size:32px;"></i></a>
-                </div>
-                {{ end }}
-            </div>
-            {{ end }}
 
         </div>
         <div class="layui-col-xs12 layui-col-sm8 layui-col-md8 about_right">
-            <h1>Bio</h1>
-            <h2>{{ safeHTML .Site.Params.Bio }}</h2>
+            <h1> {{ safeHTML .Site.Params.author | default "Authors"}} </h1>
+            <!-- <h2> {{ safeHTML .Site.Params.description | default "Intro"}} </h2> -->
+            <!-- Icons -->
+            {{ if .Site.Menus.icon }}
+            <div class="about_left_icon">
+                {{ range sort .Site.Menus.icon }}
+                <a href="{{ .URL }}"><i class="fa fa-{{ .Name }}" style="font-size:32px;"></i></a>
+                {{ end }}
+            </div>
+            {{ end }}
         </div>
     </div>
 </div>
