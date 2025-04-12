@@ -20,7 +20,9 @@ body {
     text-align: center;
     @media (min-width: 768px) {
         text-align: left;
-        padding: 75px 20px;
+        display: flex;
+        align-items: center;
+        height: 200px;
     }
 }
 
@@ -37,9 +39,9 @@ body {
 
 
 .about_portrait {
-    width: 200px;
-    height: 200px;
-    margin: 10px auto;
+    width: 150px;
+    height: 150px;
+    margin: 20px auto;
     border-radius: 50%;
     object-fit: cover;
 }
