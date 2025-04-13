@@ -1,20 +1,20 @@
 <blockquote class="self-elem-quote {{if isset $.Site.Params "quote"}}self-elem-quote-bg-{{index $.Site.Params.quote}}{{end}}" style="background-color:#FFFFFF;margin-top: 10px;">
-  <a href="{{.RelPermalink}}">
-    <h2>{{.Title}}</h2>
-    <h3>
-      {{ if isset .Params "description" }}
-        {{ .Description }}
-      {{ else if gt (len .Summary) 150 }}
-        {{ .Summary | truncate 150 " ..." }}
-      {{else if .Summary}}
-        {{ .Summary }}
-      {{end}}
-    </h3>
+	<a href="{{.RelPermalink}}">
+		<h2>{{.Title}}</h2>
+		<h3>
+			{{ if isset .Params "description" }}
+				{{ .Description }}
+			{{ else if gt (len .Summary) 150 }}
+				{{ .Summary | truncate 150 " ..." }}
+			{{else if .Summary}}
+				{{ .Summary }}
+			{{end}}
+		</h3>
 
-    {{ range $tag := .Params.tags }}
-      <a href="{{ "/tags/" | relLangURL }}{{ $tag | urlize | lower }}/">
-        <span class="layui-badge {{with $.Site.Params.badge}}layui-bg-{{.}}{{end}}" style="vertical-align: 2px;">{{ $tag }}</span>
-      </a>
-    {{ end }}
-  </a>
+		{{ range $tag := .Params.tags }}
+			<a href="{{ "/tags/" | relLangURL }}{{ $tag | urlize | lower }}/">
+				<span class="layui-badge {{with $.Site.Params.badge}}layui-bg-{{.}}{{end}}" style="vertical-align: 2px;">{{ $tag }}</span>
+			</a>
+		{{ end }}
+	</a>
 </blockquote>

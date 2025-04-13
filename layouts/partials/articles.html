@@ -1,5 +1,5 @@
-    {{ range sort (.Paginator 10).Pages "Params.lastmod" "desc" }}
-        {{ partial "article" .}}
-    {{ end }}
+{{ range sort (.Paginator 10).Pages "Params.lastmod" "desc" }}
+{{ partial "article" .}}
+{{ end }}
 
-    {{partial "pager" .}}
+{{partial "pager" .}}
