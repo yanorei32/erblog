@@ -25,12 +25,18 @@
                 	{{ range . }}
                     <div style="margin-left: 10px;">
                         <blockquote class="self-elem-quote {{if isset $.Site.Params "quote"}}self-elem-quote-bg-{{index $.Site.Params.quote}}{{end}}" style="background-color:#FFFFFF;margin-top: 10px;">
-                            <a href="{{.RelPermalink}}">
-                                <h3 class="">{{.Title}}</h3>
-                                {{ if isset .Params "description" }}
-                                  {{ .Description }}
-                                {{end}}
+                          <a href="{{.RelPermalink}}">
+                              <h3 class="">{{.Title}}</h3>
+                              {{ if isset .Params "description" }}
+                                {{ .Description }}
+                              {{end}}
+                          </a>
+                          <br>
+                          {{ range $tag := .Params.tags }}
+                            <a href="{{ "/tags/" | relLangURL }}{{ $tag | urlize | lower }}/">
+                              <span class="layui-badge {{with $.Site.Params.badge}}layui-bg-{{.}}{{end}}" style="vertical-align: 2px;">{{ $tag }}</span>
                             </a>
+                          {{ end }}
                         </blockquote>
                     </div>
                 	{{ end }}
@@ -51,6 +57,12 @@
                           {{ .Description }}
                         {{end}}
                       </a>
+                      <br>
+                      {{ range $tag := .Params.tags }}
+                        <a href="{{ "/tags/" | relLangURL }}{{ $tag | urlize | lower }}/">
+                          <span class="layui-badge {{with $.Site.Params.badge}}layui-bg-{{.}}{{end}}" style="vertical-align: 2px;">{{ $tag }}</span>
+                        </a>
+                      {{ end }}
                     </blockquote>
                 </div>
                 {{end}}
