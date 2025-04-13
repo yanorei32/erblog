@@ -10,11 +10,11 @@
 				{{ .Summary }}
 			{{end}}
 		</h3>
-
-		{{ range $tag := .Params.tags }}
-			<a href="{{ "/tags/" | relLangURL }}{{ $tag | urlize | lower }}/">
-				<span class="layui-badge {{with $.Site.Params.badge}}layui-bg-{{.}}{{end}}" style="vertical-align: 2px;">{{ $tag }}</span>
-			</a>
-		{{ end }}
 	</a>
+
+	{{ range $tag := .Params.tags }}
+		<a href="{{ "/tags/" | relLangURL }}{{ $tag | urlize | lower }}/">
+			<span class="layui-badge {{with $.Site.Params.badge}}layui-bg-{{.}}{{end}}" style="vertical-align: 2px;">{{ $tag }}</span>
+		</a>
+	{{ end }}
 </blockquote>
