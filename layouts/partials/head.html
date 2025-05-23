@@ -14,7 +14,7 @@
 
 	<meta property=og:type content=website>
 	<meta property=og:title content="{{ or .Title .Site.Title }}">
-	<meta property=og:description content="${{ or .Description .Summary .Site.Title }}">
+	<meta property=og:description content="{{ or .Description .Summary .Site.Title }}">
 	<meta property=og:site_name content="{{ .Site.Title }}">
 	<meta name=twitter:card content=summary_large_image>
 
