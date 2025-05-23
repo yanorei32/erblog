@@ -2,15 +2,28 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>{{if and (not .IsHome) (.Title)}}{{.Title}} - {{end}}{{ .Site.Title }}</title>
+	<title>{{if and (not .IsHome) (.Title)}}{{.Title}} - {{ end }}{{ .Site.Title }}</title>
 	
 	{{if .Params.tags}}
 	<meta content="{{ delimit (union .Params.tags .Params.categories) ", " }}" name="keywords">
 	{{else}}
-	<meta content="{{.Site.Title}}" name="keywords">
+	<meta content="{{ .Site.Title }}" name="keywords">
 	{{end}}
-	<meta content="{{ .Site.Title }} - {{ or .Description .Summary .Site.Title}}" name="description">
+	<meta content="{{ or .Description .Summary .Site.Title }}" name="description">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<meta property=og:type content=website>
+	<meta property=og:title content="{{ or .Title .Site.Title }}">
+	<meta property=og:description content="${{ or .Description .Summary .Site.Title }}">
+	<meta property=og:site_name content="{{ .Site.Title }}">
+	<meta name=twitter:card content=summary_large_image>
+
+	{{ if .Site.Params.twitter }}
+	<meta name=twitter:site content="@{{ .Site.Params.twitter }}">
+	<meta name=twitter:creator content="@{{ .Site.Params.twitter }}">
+	{{ end }}
+	
+	
 	
 	{{ if .Site.Params.favicon }}
 	<link rel="icon" href="{{ .Site.Params.favicon | relURL }}">
